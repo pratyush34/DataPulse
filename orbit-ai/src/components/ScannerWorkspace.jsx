@@ -32,6 +32,8 @@ const EFFECT_BADGES = {
   'breaks pipeline': 'bg-rose-950/60 text-rose-300 border-rose-500/30',
 };
 
+const API_BASE = (import.meta.env.VITE_API_URL || 'http://localhost:8000').replace(/\/$/, '');
+
 export default function ScannerWorkspace() {
   const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState('');
@@ -89,7 +91,7 @@ export default function ScannerWorkspace() {
       formData.append('target', targetCol || 'label');
       formData.append('use_model', useModelChecks ? 'true' : 'false');
 
-      const res = await fetch('http://localhost:8000/api/scan', {
+      const res = await fetch(`${API_BASE}/api/scan`, {
         method: 'POST',
         body: formData,
       });
@@ -116,7 +118,7 @@ export default function ScannerWorkspace() {
   const handleVerify = async (issueId) => {
     setVerifyingId(issueId);
     try {
-      const res = await fetch('http://localhost:8000/api/verify-issue', {
+      const res = await fetch(`${API_BASE}/api/verify-issue`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ issue_id: issueId }),
