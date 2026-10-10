@@ -356,7 +356,7 @@ export default function GlobeCanvas() {
       <canvas
         ref={canvasRef}
         className="w-full h-full max-w-[1200px] max-h-[900px] object-contain"
-        aria-label="Interactive 3D particle wireframe globe representing Orbit AI's global network"
+        aria-label="Interactive 3D particle wireframe globe representing DataPulse dataset geometry and feature space"
       />
       {/* Interactive Drag Hint */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 px-3 py-1 rounded-full bg-blue-950/40 border border-blue-500/20 text-[11px] text-blue-300/80 backdrop-blur-md pointer-events-none">
